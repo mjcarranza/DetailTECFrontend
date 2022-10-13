@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./gworkers.component.css">
+</head>
+<body>
+    <main>
+        <div class="contenedor__todo">
+            <!--Division de clase para el regstro de usuarios-->
+            <div class="contenedor__user-register">
+                <!--Formulario para el registro de usuarios-->
+                <form id="formRegistro" class="formulario__registro" autocomplete="off">
+                    <h2>Registrar Trabajadores</h2>
+                    <input id="usrName" type="text" placeholder="Nombre" required>
+                    <input id="usrApe1" type="text" placeholder="Primer Apellido" required>
+                    <input id="usrApe2" type="text" placeholder="Segundo Apellido" required>
+                    <input id="usrCed" type="text" placeholder="Cédula" maxlength="9" required>
+                    <input id="usrEdad" type="text" placeholder="Edad" maxlength="2" required>
+                    <input id="usrPass" type="password" placeholder="Contraseña" minlength="8" required>
+                    <h6>Seleccione la fecha de ingreso del trabajador a la compañía:</h6>
+                    <input id="usrFIng" type="date" placeholder="Fecha de Ingreso" required>
+                    <h6>Seleccione la fecha de nacimineto del trabajador:</h6>
+                    <input id="usrBirth" type="date" placeholder="Fecha de Nacimiento" required>
+                    <h6>Seleccione el rol que decempeña el trabajador:</h6>
+                    <select class="rol" name="rol" id="rolEmployee">
+                        <option>**Rol del trabajador**</option>
+                        <option>Lavador</option>
+                        <option>Pulidor</option>
+                    </select>
+                    <h6>Seleccione el tipo de pago del trabajador:</h6>
+                    <select name="pago" id="tipoPago">
+                        <option>**Tipo de pago**</option>
+                        <option>Semanal</option>
+                        <option>Bisemanal</option>
+                    </select>
+                    <button id = "Registrar">Registrar Trabajador</button>
+                </form>
+                <!--Crear una tabla en este nivel-->
+            </div>
+            <div>
+                <!--Espaciadores-->
+                <p>&nbsp;</p>
+                <p>&nbsp;</p>
+            </div>
+        </div>
+        <div class="tablaRegistro">
+            <h2>TABLA DE TRABAJADORES REGISTRADOS</h2>
+            <!--Creacion de una tabla que muestra los datos de los clientes-->
+            <table class="tabla">
+                <tr>
+                    <th>Nombre</th>
+                    <th>Primer Apellido</th>
+                    <th>Segundo Apellido</th>
+                    <th>Cédula</th>
+                    <th>Fecha Ingreso</th>
+                    <th>Fecha Nacimiento</th>
+                    <th>Edad</th>
+                    <th>Contraseña</th>
+                    <th>Rol</th>
+                </tr>
+                <!--En esta parte es donmde se agregan las demas filas--> 
+            </table>
+        </div>
+    </main>
+    <script src="..//gestionTrabajadores/js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./asignpersonal.component.css">
+</head>
+<body>
+    <main>
+        <div class="contenedor__todo">
+            <!--Division de clase para el regstro de usuarios-->
+            <div class="contenedor__user-register">
+                <!--Formulario para el registro de usuarios-->
+                <form id="formRegistro" class="formulario__registro" autocomplete="off">
+                    <h2>Asignar Personal a Cita Existente</h2>
+                    <h6>Seleccione el trabajador que atiende la cita:</h6>
+                    <select class="tipo" name="tipo" id="tipoLavado">
+                        <option>NOMBRE DEL TRABAJADOR</option><!-- ver como agregar opciones desde script-->
+                        <option>Lavado y aspirado</option>
+                        <option>Lavado y encerado</option>
+                        <option>Lavado premium</option>
+                        <option>Pulido</option>
+                    </select>
+                    <h6>Seleccione la cita a asignar:</h6><!--PARA LAS CITAS QUE TIENEN TRABAJADOR = NULL-->
+                    <select class="tipo" name="tipo" id="tipoLavado">
+                        <option>Hora de la cita</option><!-- ver como agregar opciones desde script-->
+                        <option>Hora de la cita</option>
+                        <option>Hora de la cita</option>
+                        <option>Hora de la cita</option>
+                        <option>Hora de la cita</option>
+                    </select>
+                    <button id = "Registrar">Registrar Cita</button>
+                </form>
+                <!--Crear una tabla en este nivel-->
+            </div>
+            <div>
+                <!--Espaciadores-->
+                <p>&nbsp;</p> 
+                <p>&nbsp;</p>
+            </div>
+        </div>
+        <div class="tablaRegistro">
+            <h2>TABLA DE TRABAJADORES ASIGNADOS</h2>
+            <!--Creacion de una tabla que muestra los datos de los clientes-->
+            <table class="tabla">
+                <tr>
+                    <th>Hora de Cita</th>
+                    <th>Nombre de Trabajador Asignado</th>
+                </tr>
+                <!--En esta parte es donmde se agregan las demas filas--> 
+            </table>
+        </div>
+    </main>
+    <script src="..//gestionTrabajadores/js/script.js"></script>
+</body>
+</html>

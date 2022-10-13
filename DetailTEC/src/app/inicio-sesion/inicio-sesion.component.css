@@ -1,0 +1,135 @@
+/*Para el orden de los componentes de la pantalla*/
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: sans-serif;
+}
+/*Cuerpo de la pantalla*/
+body{
+    background-image: url(/DetailTEC/src/assets/car-detailing-lavado-1200.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+}
+/*margenes y dimensiones de la pantalla*/
+main{
+    width: 100%;
+    padding: 20px;
+    margin: auto;
+    margin-top: 100px;
+}
+/*contenedor general (dimensiones y margenes)*/
+.contenedor__todo{
+    width: 100%;
+    max-width: 1000px;
+    margin: auto;
+    position: relative;
+}
+/*Caja color azul del fondo*/
+.caja__trasera{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    backdrop-filter: blur(5px);
+    background-color: rgba(0,128,255, 0.2);
+}
+/*para la division de la caja trasera */
+.caja__trasera div{
+    margin: 100px 100px;
+    color: rgb(255, 255, 255)
+}
+/*margenes de la caja trasera y sus divisiones*/
+.caja__trasera div p,
+.caja__trasera div button{
+    margin-top: 0px;
+    margin: 40px;
+    font-style: italic;
+}
+/*Para el header 3*/
+.caja__trasera div h3{
+    font-weight: 400;
+    margin: 40px;
+    font-size: 40px;
+}
+
+/*formularios (son para insertar los datos del usuario)*/
+.contenedor__login-register{ /*pantalla blanca*/
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 380px;
+    position: relative;
+    top: -215px;
+    left: 10px;
+
+    transition: left 500ms cubic-bezier(0.175, 0.885, 0.320, 1.275);
+}
+
+.contenedor__login-register form{/*pantalla blanca*/
+    width: 100%;
+    padding: 80px 20px;
+    background: #fff;
+    position: absolute;
+    border-radius: 20px;
+}
+
+.contenedor__login-register form h2{ /*Titulo de la pantalla blanca*/
+    font-size: 40px;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #46A2FD;
+}
+.contenedor__login-register form input{/*para las entradas de texto del formulario de login*/
+    width: 100%;
+    margin-top: 20px;
+    padding: 10px;
+    border: none;
+    background: #F2F2F2;
+    font-size: 20px;
+    outline: none;
+}
+
+.contenedor__login-register form button{/*para el boton del formulario de login*/
+    padding: 10px 40px;
+    margin-top: 20px;
+    border: none;
+    font-size: 20px;
+    background: #004387;
+    color: white;
+    cursor: pointer;
+    outline: none;
+}
+
+.formulario__login{/*para mostrar el formulario de login*/
+    opacity: 1;
+    display: block;
+}
+
+/*trabajando en el diseno de respuesta (resize)*/
+@media screen and (max-width: 850px){
+    main{
+        margin-top: 50px;
+    }
+    .caja__trasera{
+        max-width: 350px;
+        height: 300px;
+        flex-direction: column;
+        margin: auto;
+    }
+    .caja__trasera div{
+        margin: 0px;
+        position: absolute;
+    }
+    /*formulario*/
+    .contenedor__login-register{
+        top: -10px;
+        left: -5px;
+        margin: auto;
+    }
+    .contenedor__login-register form{
+        position: relative;
+    }
+}

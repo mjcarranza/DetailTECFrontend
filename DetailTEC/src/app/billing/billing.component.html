@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./billing.component.css">
+</head>
+<body>
+    <main>
+        <div class="contenedor__todo">
+            <!--Division de clase para el regstro de usuarios-->
+            <div class="contenedor__user-register">
+                <!--Formulario para el registro de usuarios-->
+                <form id="formRegistro" class="formulario__registro" autocomplete="off">
+                    <h2>Generación de Facturas</h2>
+                    <!--La factura debe contener:
+                            precio del lavado
+                            snacks consumidos
+                            bebidas consumidas
+                            detalle del servicio brindado
+                                sucursal
+                                tipo
+                                trabajador
+                                etc
+                            IVA
+                            precio total
+                    -->
+                    <h6>Seleccione la cita a facturar:</h6>
+                    <select class="tipo" name="tipo" id="tipoLavado">
+                        <option>**Saleccione una cita**</option>
+                        <option>Lavado y aspirado</option>
+                        <option>Lavado y encerado</option>
+                        <option>Lavado premium</option>
+                        <option>Pulido</option>
+                    </select>
+                    <!--Registrar en la factura--><!--Ver especificacion para requerimientos-->
+                    <input id="citaName" type="number" placeholder="Cantidad de bebidas consumidas" required><!--Si es mayor a 1 se debe cobrar-->
+                    <input id="citaName" type="number" placeholder="Cantidad de snacks consumidos" required><!--Si es mayor a 1 se debe cobrar-->
+                    <button id = "Registrar">Generar Factura</button>
+                    
+                    <!--Generada la facturacion, se debe asignar la cantidad de puntos que otorga el tipo de lavado-->
+                    <!--Finalmente descontar la cantidad de puntos si el servicio se paga con puntos-->
+                </form>
+                <!--Crear una tabla en este nivel-->
+            </div>
+            <div>
+                <!--Espaciadores-->
+                <p>&nbsp;</p> 
+                <p>&nbsp;</p>
+            </div>
+        </div>
+        <div class="tablaRegistro">
+            <h2>TABLA DE Facturas</h2>
+            <!--Creacion de una tabla que muestra los datos de los clientes-->
+            <table class="tabla">
+                <tr>
+                    <th>Nombre del Cliente</th>
+                    <th>Primer Apellido</th>
+                    <th>Segundo Apellido</th>
+                    <th>Placa del Vehículo</th>
+                    <th>Sucursal</th>
+                    <th>Tipo de  Lavado</th>
+                    <th>Snacks Consumidos</th>
+                    <th>Bebidas consumidas</th>
+                    <th>Nombre Trabajador</th>
+                    <th>Precio total</th>
+                </tr>
+                <!--En esta parte es donmde se agregan las demas filas--> 
+            </table>
+        </div>
+    </main>
+    <script src="..//gestionTrabajadores/js/script.js"></script>
+</body>
+</html>

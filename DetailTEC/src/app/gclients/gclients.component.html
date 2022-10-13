@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./gclients.component.css">
+</head>
+<body>
+    <main>
+        <div class="contenedor__todo">
+            <!--Division de clase para el regstro de usuarios-->
+            <div class="contenedor__user-register">
+                <!--Formulario para el registro de usuarios-->
+                <form id="formRegistro" class="formulario__registro" autocomplete="off">
+                    <h2>Registrar Clientes</h2>
+                    <input id="usrName" type="text" placeholder="Nombre" required>
+                    <input id="usrApe1" type="text" placeholder="Primer Apellido" required>
+                    <input id="usrApe2" type="text" placeholder="Segundo Apellido" required>
+                    <input id="usrTel" type="tel" placeholder="Teléfono" required>
+                    <input id="usrCed" type="text" placeholder="Cédula" maxlength="9" required>
+                    <input id="usrMail" type="email" placeholder="Correo Electrónico" required>
+                    <input id="usrDir" type="text" placeholder="Direcciones" required>
+                    <input id="usrUsr" type="text" placeholder="Usuario" required>
+                    <button id = "Registrar">Registrar Cliente</button>
+                </form>
+                <!--Crear una tabla en este nivel-->
+            </div>
+            <div>
+                <!--Espaciadores-->
+                <p>&nbsp;</p> 
+                <p>&nbsp;</p>
+            </div>
+        </div>
+        <div class="tablaRegistro">
+            <h2>TABLA DE CLIENTES REGISTRADOS</h2>
+            <!--Creacion de una tabla que muestra los datos de los clientes-->
+            <table class="tabla">
+                <tr>
+                    <th>Nombre</th>
+                    <th>Primer Apellido</th>
+                    <th>Segundo Apellido</th>
+                    <th>Teléfono</th>
+                    <th>Cédula</th>
+                    <th>Correo Electrónico</th>
+                    <th>Direcciones</th>
+                    <th>Usuario</th>
+                    <th>Contraseña</th>
+                </tr>
+                <!--En esta parte es donmde se agregan las demas filas--> 
+            </table>
+        </div>
+    </main>
+    <script src="..//gestionTrabajadores/js/script.js"></script>
+</body>
+</html>
