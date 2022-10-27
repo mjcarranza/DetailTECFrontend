@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { RouterModule } from '@angular/router';
+import { Routes, RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { GworkersComponent } from './gworkers/gworkers.component';
@@ -15,6 +15,9 @@ import { AsignpersonalComponent } from './asignpersonal/asignpersonal.component'
 import { BillingComponent } from './billing/billing.component';
 import { PdfreportsComponent } from './pdfreports/pdfreports.component';
 import { InicioSesionComponent } from './inicio-sesion/inicio-sesion.component';
+import { SharedService } from './shared.service';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -34,6 +37,9 @@ import { InicioSesionComponent } from './inicio-sesion/inicio-sesion.component';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
     RouterModule.forRoot([
       /**rutas para mostrar los diferentes componentes de la aplicacion */
       {path: 'sucursales', component: GsucursalesComponent},
@@ -46,13 +52,14 @@ import { InicioSesionComponent } from './inicio-sesion/inicio-sesion.component';
       {path: 'apersonal', component: AsignpersonalComponent},
       {path: 'billing', component: BillingComponent},
       {path: 'reports', component: PdfreportsComponent},
+      {path: 'inicio', component: InicioSesionComponent},
 
       /**rutas para redireccion a la pagina principal o a la pagina 404 de error */
       {path: '', redirectTo: '/sucursales', pathMatch: 'full'},
       {path: '**', component: PageNotFoundComponent}
     ]),
   ],
-  providers: [],
+  providers: [SharedService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -12,31 +12,29 @@
             <!--Division de clase para el regstro de usuarios-->
             <div class="contenedor__user-register">
                 <!--Formulario para el registro de usuarios-->
-                <form id="formRegistro" class="formulario__registro" autocomplete="off">
+                <form id="formRegistro" [formGroup]="checkoutForm" (ngSubmit)="onSubmit(checkoutForm.value)" class="formulario__registro" autocomplete="off">
                     <h2>Registrar Trabajadores</h2>
-                    <input id="usrName" type="text" placeholder="Nombre" required>
-                    <input id="usrApe1" type="text" placeholder="Primer Apellido" required>
-                    <input id="usrApe2" type="text" placeholder="Segundo Apellido" required>
-                    <input id="usrCed" type="text" placeholder="Cédula" maxlength="9" required>
-                    <input id="usrEdad" type="text" placeholder="Edad" maxlength="2" required>
-                    <input id="usrPass" type="password" placeholder="Contraseña" minlength="8" required>
+                    <input #nombre type="text" placeholder="Nombre" formControlName="nombre">
+                    <input #trabApe1 type="text" placeholder="Primer Apellido" formControlName="apellido1">
+                    <input #trabApe2 type="text" placeholder="Segundo Apellido" formControlName="apellido2">
+                    <input #trabCed type="number" placeholder="Cédula" max="999999999" formControlName="cedula">
                     <h6>Seleccione la fecha de ingreso del trabajador a la compañía:</h6>
-                    <input id="usrFIng" type="date" placeholder="Fecha de Ingreso" required>
+                    <input #trabFIng type="date" placeholder="Fecha de Ingreso" formControlName="fecha_ingreso">
                     <h6>Seleccione la fecha de nacimineto del trabajador:</h6>
-                    <input id="usrBirth" type="date" placeholder="Fecha de Nacimiento" required>
+                    <input #trabBirth type="date" placeholder="Fecha de Nacimiento" formControlName="fecha_nacimiento">
+                    <input #trabEdad type="number" placeholder="Edad" min="15" max="99" formControlName="edad">
+                    <input #trabPass type="password" placeholder="Contraseña" minlength="8" formControlName="password">
                     <h6>Seleccione el rol que decempeña el trabajador:</h6>
-                    <select class="rol" name="rol" id="rolEmployee">
-                        <option>**Rol del trabajador**</option>
-                        <option>Lavador</option>
-                        <option>Pulidor</option>
+                    <select #wRol name="rol" formControlName="rol">
+                        <option value="1">Lavador</option>
+                        <option value="2">Pulidor</option>
                     </select>
                     <h6>Seleccione el tipo de pago del trabajador:</h6>
-                    <select name="pago" id="tipoPago">
-                        <option>**Tipo de pago**</option>
-                        <option>Semanal</option>
-                        <option>Bisemanal</option>
+                    <select #wPago name="trabPago" formControlName="tipo_pago">
+                        <option value="1">Semanal</option>
+                        <option value="2">Bisemanal</option>
                     </select>
-                    <button id = "Registrar">Registrar Trabajador</button>
+                    <button class="button" type="submit">Registrar Trabajador</button>
                 </form>
                 <!--Crear una tabla en este nivel-->
             </div>
@@ -60,11 +58,26 @@
                     <th>Edad</th>
                     <th>Contraseña</th>
                     <th>Rol</th>
+                    <th>Tipo de Pago</th>
+                </tr>
+                <tr *ngFor="let dataItem of EmpleadoList"><!--modificar esto de acuerdo con los headders de la base de datos-->
+                    <td>{{dataItem.nombre}}</td>
+                    <td>{{dataItem.apellido1}}</td>
+                    <td>{{dataItem.apellido2}}</td>
+                    <td>{{dataItem.cedula}}</td>
+                    <td>{{dataItem.fecha_ingreso}}</td>
+                    <td>{{dataItem.fecha_nacimiento}}</td>
+                    <td>{{dataItem.edad}}</td>
+                    <td>{{dataItem.password}}</td>
+                    <td>{{dataItem.rol}}</td>
+                    <td>{{dataItem.tipo_pago}}</td>
                 </tr>
                 <!--En esta parte es donmde se agregan las demas filas--> 
             </table>
         </div>
     </main>
-    <script src="..//gestionTrabajadores/js/script.js"></script>
+    <script src="./workers.js"></script> 
 </body>
 </html>
+
+ 

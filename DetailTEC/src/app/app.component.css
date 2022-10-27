@@ -1,30 +1,30 @@
 /* codigo del tutorial */
 .button {
     box-shadow: inset 0px 1px 0px 0px #ffffff;
-    background: linear-gradient(to bottom, #ffffff00 50%, #f6f6f6 100%);
+    background: linear-gradient(to bottom, #ffffff00 50%, hsl(41, 100%, 67%) 100%);
     background-color: #ffffff00;
     border-radius: 6px;
-    border: 1px solid #dcdcdc;
+    border: 1px solid #000000;
     display: inline-block;
     cursor: pointer;
-    color: #666666;
+    color: #ffffff;
     font-family: Arial;
     font-size: 15px;
     font-weight: bold;
     padding: 6px 24px;
     text-decoration: none;
-    text-shadow: 0px 1px 0px #ffffff;
+    text-shadow: 0px 1px 0px #000000;
     outline: 0;
 }
 .activebutton {
     box-shadow: inset 0px 1px 0px 0px #dcecfb;
-    background: linear-gradient(to bottom, #bddbfa 5%, #000c7b 100%);
+    background: linear-gradient(to bottom, #fdfdfd 5%, #bbff01 100%);
     background-color: #bddbfa;
     border-radius: 6px;
     border: 1px solid #84bbf3;
     display: inline-block;
     cursor: pointer;
-    color: #ffffff;
+    color: #000000;
     font-family: Arial;
     font-size: 15px;
     font-weight: bold;
@@ -37,7 +37,7 @@
 
 /*Para el cuerpo de la pagina web*/
 body {
-    background: #f1f1f1;
+    background: #8b8b8b;
 }
 /*Para la barra superior donde se detalla el nombre de la empresa*/
 .barra {

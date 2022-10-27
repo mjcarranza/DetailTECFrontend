@@ -12,31 +12,22 @@
             <!--Division de clase para el regstro de usuarios-->
             <div class="contenedor__user-register">
                 <!--Formulario para el registro de usuarios-->
-                <form id="formRegistro" class="formulario__registro" autocomplete="off">
+                <form id="formRegistro" [formGroup]="checkoutForm" class="formulario__registro" autocomplete="off">
                     <h2>Generación de Reportes</h2>
-                    <h6>-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</h6>
+                    
                     <h4>Reporte de planilla</h4>
-                    <button id = "Registrar">Generar Reporte</button>
-                    <h6>-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</h6>
+                    <button id = "Registrar" (click)="reportePlanillaPDF()">Generar Reporte</button>
+
+                    <p>&nbsp;</p> 
+
                     <h4>Reporte de tipos de lavado por cliente</h4>
-                    <select name="pago" id="tipoPago">
-                        <option>**Seleccione un cliente**</option><!--generar mas opciones con query-->
-                    </select>
-                    <button id = "Registrar">Generar Reporte</button>                    
-                    <h6>-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</h6>
+                    <input id="provName" type="number" placeholder="Cedula del cliente" formControlName="id_cliente">
+                    <button id = "Registrar" (click)="tiposDeLavadoPDF(checkoutForm.value)">Generar Reporte</button>
+
+                    <p>&nbsp;</p> 
+                    
                     <h4>Reporte de puntos</h4>
-                    <h6>Seleccione los clientes que desea incluir en la generación del reporte</h6>
-                    <!--Generar checkboxes para cada cliente y con esa lista hacer el request-->
-                    <input id="cliente1" type="checkbox" name="client1" value="client1">
-                    <label for="cliente1">Nombre del cliente 1</label>
-
-                    <input id="cliente1" type="checkbox" name="client1" value="client1">
-                    <label for="cliente1">Nombre del cliente 1</label>
-
-                    <input id="cliente1" type="checkbox" name="client1" value="client1">
-                    <label for="cliente1">Nombre del cliente 1</label>
-                    <button id = "Registrar">Generar Reporte</button>
-                    <h6>-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</h6>
+                    <button id = "Registrar" (click)="puntosPDF()">Generar Reporte</button>
                     <!--Al dar click en cada boton se genera el pdf correspondiente-->
                 </form>
                 <!--Crear una tabla en este nivel-->
@@ -48,6 +39,6 @@
             </div>
         </div>
     </main>
-    <script src="..//gestionTrabajadores/js/script.js"></script>
+    <script></script>
 </body>
 </html>

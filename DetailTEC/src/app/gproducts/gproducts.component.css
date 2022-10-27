@@ -13,7 +13,7 @@ body{
     background-repeat: no-repeat;
     background-position: center;
     background-attachment: fixed;
-    background-color: aquamarine;
+    background-color: rgb(255, 255, 255);
 }
 /*margenes y dimensiones de la pantalla*/
 main{
@@ -38,30 +38,14 @@ main{
     color: #103b66;
 }
 
-.contenedor__user-register form h6{ /*Titulo para los seleccionadores*/
-    font-size: 20px;
-    font-family: 'Times New Roman', Times, serif;
-    text-align: left;
-    margin-left: 330px;
-    color: #000000;
-}
-
-.contenedor__user-register form select{/*para la caja seleccionadora*/
-    margin-left: 325px;
-    padding: 10px;
-    border-radius: 5px;
-    border-color: white;
-}
-
 .contenedor__user-register form input{/*para las entradas de texto del formulario de login*/
     width: 50%;
     margin-top: 5px;
-    margin-left: 325px;
-    margin-right: 200px;
+    margin-inline-start: 25%;
     max-width: 900px;
     padding: 5px;
     border-radius: 5px;
-    border-color: white;
+    border-color: rgb(165, 165, 165);
     background: #F2F2F2;
     font-size: 16px;
     outline: none;
@@ -72,7 +56,7 @@ main{
     margin-top: 10px;
     border: none;
     border-radius: 10px;
-    margin-inline: 325px;
+    margin-inline-start: 25%;
     font-size: 14px;
     font-family: 'Times New Roman', Times, serif;
     font-size: 20px;

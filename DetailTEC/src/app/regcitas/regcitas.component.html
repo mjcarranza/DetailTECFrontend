@@ -12,22 +12,45 @@
             <!--Division de clase para el regstro de usuarios-->
             <div class="contenedor__user-register">
                 <!--Formulario para el registro de usuarios-->
-                <form id="formRegistro" class="formulario__registro" autocomplete="off">
+                <form id="formRegistro" [formGroup]="checkoutForm" (ngSubmit)="onSubmit(checkoutForm.value)" class="formulario__registro" autocomplete="off">
                     <h2>Registrar Cita</h2>
-                    <input id="citaName" type="text" placeholder="Nombre del cliente" required>
-                    <input id="citaProv" type="text" placeholder="Primer apellido" required>
-                    <input id="citaCant" type="text" placeholder="Segundo apellido" required>
-                    <input id="citaDist" type="text" placeholder="Placa del vehículo" required>
-                    <input id="citaTel" type="tel" placeholder="Sucursal" required>
-                    <h6>Seleccione el tipo de lavado solicitado por el cliente:</h6>
-                    <select class="tipo" name="tipo" id="tipoLavado">
-                        <option>TIPO DE LAVADO</option>
-                        <option>Lavado y aspirado</option>
-                        <option>Lavado y encerado</option>
-                        <option>Lavado premium</option>
-                        <option>Pulido</option>
+                    <input id="citaId" type="number" placeholder="Identificación del cliente" formControlName="id">
+                    <input id="citaPlaca" type="text" placeholder="Placa del vehículo" formControlName="placa">
+                    <input id="citaSuc" type="tel" placeholder="Sucursal" formControlName="sucursal">
+                    <h6>Seleccione el tipo de lavado solicitado:</h6>
+                    <select class="tipo" name="tipolav" id="tipoLavado" formControlName="tipo_lavado">
+                        <option value="1">Lavado y aspirado</option>
+                        <option value="2">Lavado y encerado</option>
+                        <option value="3">Lavado premium</option>
+                        <option value="4">Pulido</option>
                     </select>
-                    <button id = "Registrar">Registrar Cita</button>
+                    <h6>Seleccione la hora de la cita:</h6>
+                    <select class="tipo" name="hora" id="horaCita" formControlName="hora">
+                        <option value="08:00 am">08:00 am</option>
+                        <option value="08:30 am">08:30 am</option>
+
+                        <option value="09:00 am">09:00 am</option>
+                        <option value="09:30 am">09:30 am</option>
+
+                        <option value="10:00 am">10:00 am</option>
+                        <option value="10:30 am">10:30 am</option>
+
+                        <option value="11:00 am">11:00 am</option>
+                        <option value="11:30 am">11:30 am</option>
+
+                        <option value="01:00 pm">01:00 pm</option>
+                        <option value="01:30 pm">01:30 pm</option>
+
+                        <option value="02:00 pm">02:00 pm</option>
+                        <option value="02:30 pm">02:30 pm</option>
+
+                        <option value="03:00 pm">03:00 pm</option>
+                        <option value="03:30 pm">03:30 pm</option>
+
+                        <option value="04:00 pm">04:00 pm</option>
+                        <option value="04:30 pm">04:30 pm</option>
+                    </select>
+                    <button class="button" type="submit">Registrar Cita</button>
                 </form>
                 <!--Crear una tabla en este nivel-->
             </div>
@@ -45,14 +68,27 @@
                     <th>Nombre del Cliente</th>
                     <th>Primer Apellido</th>
                     <th>Segundo Apellido</th>
+                    <th>Cédula</th>
                     <th>Placa del Vehículo</th>
                     <th>Sucursal</th>
                     <th>Lavado Solicitado</th>
+                </tr>
+                <tr *ngFor="let dataItem of CitaList"><!--modificar esto de acuerdo con los headders de la base de datos-->
+                    <td>{{dataItem.nombre}}</td>
+                    <td>{{dataItem.apellido1}}</td>
+                    <td>{{dataItem.apellido2}}</td>
+                    <td>{{dataItem.cedula}}</td>
+                    <td>{{dataItem.fecha_ingreso}}</td>
+                    <td>{{dataItem.fecha_nacimiento}}</td>
+                    <td>{{dataItem.edad}}</td>
+                    <td>{{dataItem.password}}</td>
+                    <td>{{dataItem.rol}}</td>
+                    <td>{{dataItem.tipo_pago}}</td>
                 </tr>
                 <!--En esta parte es donmde se agregan las demas filas--> 
             </table>
         </div>
     </main>
-    <script src="..//gestionTrabajadores/js/script.js"></script>
+    <script></script>
 </body>
 </html>

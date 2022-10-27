@@ -12,18 +12,19 @@
             <!--Division de clase para el regstro de usuarios-->
             <div class="contenedor__user-register">
                 <!--Formulario para el registro de usuarios-->
-                <form id="formRegistro" class="formulario__registro" autocomplete="off">
+                <form id="formRegistro" [formGroup]="checkoutForm" (ngSubmit)="onSubmit(checkoutForm.value)" class="formulario__registro" autocomplete="off">
                     <h2>Registrar Sucursal</h2>
-                    <input id="sucName" type="text" placeholder="Nombre de la sucursal" required>
-                    <input id="sucProv" type="text" placeholder="Provincia de ubicación" required>
-                    <input id="sucCant" type="text" placeholder="Cantón de ubicación" required>
-                    <input id="sucDist" type="text" placeholder="Distrito de ubicación" required>
-                    <input id="sucTel" type="tel" placeholder="Teléfono" required>
-                    <input id="sucApertura" type="text" placeholder="Cédula" required>
-                    <input id="sucMail" type="email" placeholder="Correo Electrónico" required>
-                    <input id="sucDir" type="text" placeholder="Direcciones" required>
-                    <input id="sucUsr" type="text" placeholder="Usuario" required>
-                    <button id = "Registrar">Registrar Sucursal</button>
+                    <input id="sucName" type="text" placeholder="Nombre de la sucursal" formControlName="name">
+                    <input id="sucProv" type="text" placeholder="Provincia de ubicación" formControlName="prov">
+                    <input id="sucCant" type="text" placeholder="Cantón de ubicación" formControlName="cant">
+                    <input id="sucDist" type="text" placeholder="Distrito de ubicación" formControlName="dist">
+                    <input id="sucTel" type="tel" placeholder="Teléfono" formControlName="tel">
+                    <input id="sucGerente" type="number" placeholder="Identificación del Gerente" max="9" formControlName="idGer">
+                    <h6>Seleccione la fecha de apertura de la sucursal:</h6>
+                    <input id="sucApertura" type="date" placeholder="Fecha de apertura" formControlName="fAbre">
+                    <h6>Seleccione la fecha de inicio de la gerencia</h6>
+                    <input id="sucDateGerente" type="date" placeholder="Fecha inicio de gerencia" formControlName="fInicio">
+                    <button class="button" type="submit">Registrar Sucursal</button>
                 </form>
                 <!--Crear una tabla en este nivel-->
             </div>
@@ -39,19 +40,30 @@
             <table class="tabla">
                 <tr>
                     <th>Nombre</th>
-                    <th>Primer Apellido</th>
-                    <th>Segundo Apellido</th>
+                    <th>Provincia</th>
+                    <th>Cantón</th>
+                    <th>Distrito</th>
                     <th>Teléfono</th>
-                    <th>Cédula</th>
-                    <th>Correo Electrónico</th>
-                    <th>Direcciones</th>
-                    <th>Usuario</th>
-                    <th>Contraseña</th>
+                    <th>Identificación del gerente</th>
+                    <th>Fecha de apertura</th>
+                    <th>Inicio gerencia</th>
+                </tr>
+                <tr *ngFor="let dataItem of SucursalList"><!--modificar esto de acuerdo con los headders de la base de datos-->
+                    <td>{{dataItem.nombre}}</td>
+                    <td>{{dataItem.apellido1}}</td>
+                    <td>{{dataItem.apellido2}}</td>
+                    <td>{{dataItem.cedula}}</td>
+                    <td>{{dataItem.fecha_ingreso}}</td>
+                    <td>{{dataItem.fecha_nacimiento}}</td>
+                    <td>{{dataItem.edad}}</td>
+                    <td>{{dataItem.password}}</td>
+                    <td>{{dataItem.rol}}</td>
+                    <td>{{dataItem.tipo_pago}}</td>
                 </tr>
                 <!--En esta parte es donmde se agregan las demas filas--> 
             </table>
         </div>
     </main>
-    <script src="..//gestionTrabajadores/js/script.js"></script>
+    <script></script>
 </body>
 </html>

@@ -12,16 +12,16 @@
             <!--Division de clase para el regstro de usuarios-->
             <div class="contenedor__user-register">
                 <!--Formulario para el registro de usuarios-->
-                <form id="formRegistro" class="formulario__registro" autocomplete="off">
+                <form id="formRegistro" [formGroup]="checkoutForm" (ngSubmit)="onSubmit(checkoutForm.value)" class="formulario__registro" autocomplete="off">
                     <h2>Registrar Clientes</h2>
-                    <input id="usrName" type="text" placeholder="Nombre" required>
-                    <input id="usrApe1" type="text" placeholder="Primer Apellido" required>
-                    <input id="usrApe2" type="text" placeholder="Segundo Apellido" required>
-                    <input id="usrTel" type="tel" placeholder="Teléfono" required>
-                    <input id="usrCed" type="text" placeholder="Cédula" maxlength="9" required>
-                    <input id="usrMail" type="email" placeholder="Correo Electrónico" required>
-                    <input id="usrDir" type="text" placeholder="Direcciones" required>
-                    <input id="usrUsr" type="text" placeholder="Usuario" required>
+                    <input id="usrName" type="text" placeholder="Nombre" formControlName="nombre">
+                    <input id="usrApe1" type="text" placeholder="Primer Apellido" formControlName="apellido1">
+                    <input id="usrApe2" type="text" placeholder="Segundo Apellido" formControlName="apellido2">
+                    <input id="usrTel" type="tel" placeholder="Teléfono" formControlName="telefono">
+                    <input id="usrCed" type="number" placeholder="Cédula" maxlength="9" formControlName="cedula">
+                    <input id="usrMail" type="email" placeholder="Correo Electrónico" formControlName="email">
+                    <input id="usrDir" type="text" placeholder="Direcciones" formControlName="direcciones">
+                    <input id="usrUsr" type="text" placeholder="Usuario" formControlName="usuario">
                     <button id = "Registrar">Registrar Cliente</button>
                 </form>
                 <!--Crear una tabla en este nivel-->
@@ -46,11 +46,24 @@
                     <th>Direcciones</th>
                     <th>Usuario</th>
                     <th>Contraseña</th>
+                    <th>Lavados realizados</th>
+                    <th>Puntos</th>
+                    <th>Ptos redimidos</th>
+                </tr>
+                <tr *ngFor="let dataItem of ClientsList"><!--modificar esto de acuerdo con los headders de la base de datos-->
+                    <td>{{dataItem.nombre}}</td>
+                    <td>{{dataItem.apellido1}}</td>
+                    <td>{{dataItem.apellido2}}</td>
+                    <td>{{dataItem.telefono}}</td>
+                    <td>{{dataItem.cedula}}</td>
+                    <td>{{dataItem.email}}</td>
+                    <td>{{dataItem.direcciones}}</td>
+                    <td>{{dataItem.usuario}}</td>
                 </tr>
                 <!--En esta parte es donmde se agregan las demas filas--> 
             </table>
         </div>
     </main>
-    <script src="..//gestionTrabajadores/js/script.js"></script>
+    <script></script>
 </body>
 </html>

@@ -12,14 +12,16 @@
             <!--Division de clase para el regstro de usuarios-->
             <div class="contenedor__user-register">
                 <!--Formulario para el registro de usuarios-->
-                <form id="formRegistro" class="formulario__registro" autocomplete="off">
+                <form id="formRegistro" [formGroup]="checkoutForm" (ngSubmit)="onSubmit(checkoutForm.value)" class="formulario__registro" autocomplete="off">
                     <h2>Registrar Proveedor</h2>
-                    <input id="provName" type="text" placeholder="Nombre del proveedor" required>
-                    <input id="provProv" type="text" placeholder="Cedula jurídica" required>
-                    <input id="provCant" type="text" placeholder="Dirección" required>
-                    <input id="provMail" type="email" placeholder="Correo Electrónico" required>
-                    <input id="provDir" type="text" placeholder="Telefono de contacto" required>
-                    <button id = "Registrar">Registrar Proveedor</button>
+                    <input id="provName" type="text" placeholder="Nombre del proveedor" formControlName="nombre">
+                    <input id="provCed" type="number" placeholder="Cedula jurídica" max="9" formControlName="cedula">
+                    <input id="provProv" type="text" placeholder="Provincia" formControlName="provincia">
+                    <input id="provCant" type="text" placeholder="Cantón" formControlName="canton">
+                    <input id="provDist" type="text" placeholder="Distrito" formControlName="distrito">
+                    <input id="provMail" type="email" placeholder="Correo Electrónico" formControlName="email">
+                    <input id="provTel" type="tel" placeholder="Telefono de contacto" formControlName="telefono">
+                    <button class="button" type="submit">Registrar Trabajador</button>
                 </form>
                 <!--Crear una tabla en este nivel-->
             </div>
@@ -40,10 +42,19 @@
                     <th>Correo Electrónico</th>
                     <th>Teléfono</th>
                 </tr>
+                <tr *ngFor="let dataItem of ProvidersList"><!--modificar esto de acuerdo con los headders de la base de datos-->
+                    <td>{{dataItem.nombre}}</td>
+                    <td>{{dataItem.cedula}}</td>
+                    <td>{{dataItem.provincia}}</td>
+                    <td>{{dataItem.canton}}</td>
+                    <td>{{dataItem.distrito}}</td>
+                    <td>{{dataItem.email}}</td>
+                    <td>{{dataItem.telefono}}</td>
+                </tr>
                 <!--En esta parte es donmde se agregan las demas filas--> 
             </table>
         </div>
     </main>
-    <script src="..//gestionTrabajadores/js/script.js"></script>
+    <script></script>
 </body>
 </html>

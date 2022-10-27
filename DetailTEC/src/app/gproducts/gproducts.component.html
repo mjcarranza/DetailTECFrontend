@@ -12,13 +12,13 @@
             <!--Division de clase para el regstro de usuarios-->
             <div class="contenedor__user-register">
                 <!--Formulario para el registro de usuarios-->
-                <form id="formRegistro" class="formulario__registro" autocomplete="off">
+                <form id="formRegistro" [formGroup]="checkoutForm" (ngSubmit)="onSubmit(checkoutForm.value)" class="formulario__registro" autocomplete="off">
                     <h2>Registrar Producto</h2>
-                    <input id="provName" type="text" placeholder="Nombre del producto" required>
-                    <input id="provProv" type="text" placeholder="Marca" required>
-                    <input id="provCant" type="text" placeholder="Costo" required>
-                    <input id="provMail" type="email" placeholder="Proveedor" required>
-                    <button id = "Registrar">Registrar Producto</button>
+                    <input id="prodNombre" type="text" placeholder="Nombre del producto" formControlName="nombre">
+                    <input id="prodMarca" type="text" placeholder="Marca" formControlName="marca">
+                    <input id="prodCost" type="text" placeholder="Costo" formControlName="costo">
+                    <input id="prodCed" type="number" placeholder="Cédula jurídica del proveedor" formControlName="cedula_proveedor">
+                    <button class="button" type="submit">Registrar Producto</button>
                 </form>
                 <!--Crear una tabla en este nivel-->
             </div>
@@ -38,10 +38,16 @@
                     <th>Costo</th>
                     <th>Proveedor</th>
                 </tr>
+                <tr *ngFor="let dataItem of ProductsList"><!--modificar esto de acuerdo con los headders de la base de datos-->
+                    <td>{{dataItem.nombre}}</td>
+                    <td>{{dataItem.marca}}</td>
+                    <td>{{dataItem.costo}}</td>
+                    <td>{{dataItem.cedula_proveedor}}</td>
+                </tr>
                 <!--En esta parte es donmde se agregan las demas filas--> 
             </table>
         </div>
     </main>
-    <script src="..//gestionTrabajadores/js/script.js"></script>
+    <script></script>
 </body>
 </html>

@@ -8,7 +8,7 @@
 }
 /*Cuerpo de la pantalla*/
 body{
-    background-image: url(/DetailTEC/src/assets/car-detailing-lavado-1200.jpg);
+    background-image: url(../../assets/car-detailing-lavado-1200.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;

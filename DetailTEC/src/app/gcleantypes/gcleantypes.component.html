@@ -12,22 +12,21 @@
             <!--Division de clase para el regstro de usuarios-->
             <div class="contenedor__user-register">
                 <!--Formulario para el registro de usuarios-->
-                <form id="formRegistro" class="formulario__registro" autocomplete="off">
+                <form id="formRegistro" [formGroup]="checkoutForm" (ngSubmit)="onSubmit(checkoutForm.value)" class="formulario__registro" autocomplete="off">
                     <h2>Registrar Tipo de Lavado</h2>
-                    <h6>Seleccione el tipo de lavado:</h6>
-                    <select class="tipo" name="tipo" id="tipoLavado">
-                        <option>TIPO DE LAVADO</option>
-                        <option>Lavado y aspirado</option>
-                        <option>Lavado y encerado</option>
-                        <option>Lavado premium</option>
-                        <option>Pulido</option>
-                    </select>
-                    <input id="lavName" type="text" placeholder="Costo del personal" required>
-                    <input id="lavApe1" type="text" placeholder="Precio del lavado" required>
-                    <input id="lavApe2" type="text" placeholder="Duración estimada en horas" required>
-                    <input id="lavCed" type="text" placeholder="Productos utilizados" required> <!--cambiar por check boxes-->
-                    <input id="lavEdad" type="number" placeholder="Cantidad de personal requerido" required>
-                    <input id="lavPass" type="number" placeholder="Puntuación" required><!--ptos que otorga el tipo de lavado y puntos para redimir-->
+                    <input id="lavName" type="text" placeholder="Nombre del nuevo lavado" formControlName="nombre">
+                    <input id="lavCost" type="number" placeholder="Costo del personal" formControlName="costo">
+                    <input id="lavPrecio" type="number" placeholder="Precio del lavado" formControlName="precio">
+                    <input id="lavDura" type="number" min="0" step="0.5" placeholder="Duración estimada en horas" formControlName="duracion">
+                    <h6>Seleccione los productos utilizados para el lavado:</h6>
+                    <select class="tipo" name="tipo" id="tipoLavado" multiple size="4" formControlName="productos_usados">
+                        <option value="producto1">producto1</option>
+                        <option value="producto2">producto2</option>
+                        <option value="producto3">producto3</option>
+                        <option value="producto4">producto4</option>
+                    </select> <!--cambiar por check boxes-->
+                    <input id="lavPers" type="number" placeholder="Cantidad de personal requerido" formControlName="cantidad_personal">
+                    <input id="lavPuntos" type="number" placeholder="Puntuación" formControlName="puntuacion"><!--ptos que otorga el tipo de lavado y puntos para redimir-->
                     <button id = "Registrar">Registrar Tipo de Lavado</button>
                 </form>
                 <!--Crear una tabla en este nivel-->
@@ -39,22 +38,32 @@
             </div>
         </div>
         <div class="tablaRegistro">
-            <h2>TABLA DE TRABAJADORES REGISTRADOS</h2>
+            <h2>TABLA DE TIPOS DE LAVADO REGISTRADOS</h2>
             <!--Creacion de una tabla que muestra los datos de los clientes-->
             <table class="tabla">
                 <tr>
-                    <th>Tipo</th>
+                    <th>Nombre del lavado</th>
                     <th>Costo (Pago personal)</th>
                     <th>Precio</th>
                     <th>Duracion en horaas</th>
                     <th>productos utilizados</th>
                     <th>Cantidad de personal requerido</th>
-                    <th>Puntuación</th>
+                    <th>Ptos otorga</th>
+                    <th>Ptos redime</th>
+                </tr>
+                <tr *ngFor="let dataItem of ClenTypesList"><!--modificar esto de acuerdo con los headders de la base de datos-->
+                    <td>{{dataItem.nombre}}</td>
+                    <td>{{dataItem.costo}</td>
+                    <td>{{dataItem.precio}</td>
+                    <td>{{dataItem.duracion}}</td>
+                    <td>{{dataItem.productos_usados}}</td>
+                    <td>{{dataItem.cantidad_personal}}</td>
+                    <td>{{dataItem.puntuacion}}</td>
                 </tr>
                 <!--En esta parte es donmde se agregan las demas filas--> 
             </table>
         </div>
     </main>
-    <script src="..//gestionTrabajadores/js/script.js"></script>
+    <script></script>
 </body>
 </html>
