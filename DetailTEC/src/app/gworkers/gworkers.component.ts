@@ -28,13 +28,16 @@ export class GworkersComponent implements OnInit {
   checkoutForm: any;
 
   ngOnInit(): void {
+    // Se hace un get de la tabla de sucursales para mostrarlas una vez que se carga la pagina
     this.refreshEmplList();
   }
 
+  // funcion para hacer post a la base de datos
   onSubmit(customerData:any) {
-    // Process checkout data here
+    // se cambia el tipo de dato de rol y tipo de pago
     customerData.rol = parseInt(customerData.rol);
     customerData.tipo_pago = parseInt(customerData.tipo_pago);
+    // se ordena la informacion para enviarla
     let data = {
       "nombre": customerData.nombre,
       "apellido1": customerData.apellido1,
@@ -47,11 +50,10 @@ export class GworkersComponent implements OnInit {
       "rol": customerData.rol,
       "tipo_pago": customerData.tipo_pago
     };
-    //let wDatos = JSON.stringify(customerData);
+    // se envian los datos a la Base de Datos
     this.service.addEmpleado(JSON.stringify(data));
     this.checkoutForm.reset();
-  
-    console.log('Your order has been submitted', data);
+    // se actualiza la tabla
     this.refreshEmplList();
   }
 

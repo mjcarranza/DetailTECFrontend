@@ -26,7 +26,8 @@
                         <option value="producto4">producto4</option>
                     </select> <!--cambiar por check boxes-->
                     <input id="lavPers" type="number" placeholder="Cantidad de personal requerido" formControlName="cantidad_personal">
-                    <input id="lavPuntos" type="number" placeholder="Puntuación" formControlName="puntuacion"><!--ptos que otorga el tipo de lavado y puntos para redimir-->
+                    <input id="lavPuntos" type="number" placeholder="Puntuación" formControlName="puntuacion">
+                    <input id="lavPuntosRed" type="number" placeholder="PuntuaciónRedime" formControlName="puntuacion_redime">
                     <button id = "Registrar">Registrar Tipo de Lavado</button>
                 </form>
                 <!--Crear una tabla en este nivel-->
@@ -45,16 +46,16 @@
                     <th>Nombre del lavado</th>
                     <th>Costo (Pago personal)</th>
                     <th>Precio</th>
-                    <th>Duracion en horaas</th>
-                    <th>productos utilizados</th>
+                    <th>Duración en horas</th>
+                    <th>Productos utilizados</th>
                     <th>Cantidad de personal requerido</th>
                     <th>Ptos otorga</th>
                     <th>Ptos redime</th>
                 </tr>
                 <tr *ngFor="let dataItem of ClenTypesList"><!--modificar esto de acuerdo con los headders de la base de datos-->
                     <td>{{dataItem.nombre}}</td>
-                    <td>{{dataItem.costo}</td>
-                    <td>{{dataItem.precio}</td>
+                    <td>{{dataItem.costo}}</td>
+                    <td>{{dataItem.precio}}</td>
                     <td>{{dataItem.duracion}}</td>
                     <td>{{dataItem.productos_usados}}</td>
                     <td>{{dataItem.cantidad_personal}}</td>

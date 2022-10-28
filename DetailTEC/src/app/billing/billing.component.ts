@@ -29,19 +29,22 @@ export class BillingComponent implements OnInit {
   }
 
   onSubmit(customerData:any) {
-    // Process checkout data here
-    let datos = JSON.stringify(customerData);
-    this.service.addProvider(datos); // generar factura
+    let data = {
+      "id_cliente": customerData.id_cliente,
+      "cantidad_bebidas": customerData.cantidad_bebidas,
+      "cantidad_snacks": customerData.cantidad_snacks,
+      "metodo_pago" : customerData.metodo_pago
+    };
+    //let datos = JSON.stringify(data);
+    //this.service.addProvider(datos); // generar factura
     this.checkoutForm.reset();
-  
-    console.warn('Your order has been submitted', customerData);
-
-    this.GeneraFacturaPDF();
+    this.GeneraFacturaPDF(data);
   }
 
   // Generacion de reporte de planilla
-  GeneraFacturaPDF(){
+  GeneraFacturaPDF(data:any){
     // HACER QUERYS CORRESPONDIENTES
+    /** llamar al metodo para obtener los datos necesarios para la factura */
     const pdfDefinition: any = {
       content: [
         {

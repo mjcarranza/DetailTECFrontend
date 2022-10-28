@@ -27,10 +27,41 @@ export class PdfreportsComponent implements OnInit {
   reportePlanillaPDF(){
     // HACER QUERYS CORRESPONDIENTES
     const pdfDefinition: any = {
-      content: [
+      content: [ //                                      sangria, top, na, buttom
+        { text: 'Reporte de Planilla',fontSize: 20, bold: true, margin: [0, 0, 0, 20], style: 'header' },
         {
-          text: 'REPORTE DE PLANILLA',
-        }
+          style: 'tableExample', color: '#444',
+          table: {
+            body: [
+              [{ text: 'Nombre',fontSize: 14,bold: true, alignment: 'center' }, 
+              { text: 'Primer Apellido',fontSize: 14,bold: true, alignment: 'center' }, 
+              { text: 'Segundo Apellido',fontSize: 14,bold: true, alignment: 'center' }, 
+              { text: 'Tipo de Pago',fontSize: 14,bold: true, alignment: 'center' }, 
+              { text: 'Tipo de Lavado',fontSize: 14,bold: true, alignment: 'center' }, 
+              { text: 'Cantidad de Lavados',fontSize: 14,bold: true, alignment: 'center' }, 
+              { text: 'Costo',fontSize: 14,bold: true, alignment: 'center' }, 
+              { text: 'Monto Total',fontSize: 14,bold: true, alignment: 'center' }],
+
+              [{text:'Mario',alignment:'center'}, 
+              {text:'Carranza',alignment:'center'}, 
+              {text:'Castillo',alignment:'center'}, 
+              {text:'Semanal',alignment:'center'}, 
+              {text:'Pulido y encerado',alignment:'center'}, 
+              {text:'2',alignment:'center'},
+              {text:'200',alignment:'center'}, 
+              {text:'500',alignment:'center'}],
+
+              [{text:'Mario',alignment:'center'}, 
+              {text:'Carranza',alignment:'center'}, 
+              {text:'Castillo',alignment:'center'}, 
+              {text:'Semanal',alignment:'center'}, 
+              {text:'Pulido y encerado',alignment:'center'}, 
+              {text:'2',alignment:'center'},
+              {text:'200',alignment:'center'}, 
+              {text:'500',alignment:'center'}],
+            ]
+          }
+        },
       ]
     }
     const pdf = pdfMake.createPdf(pdfDefinition);

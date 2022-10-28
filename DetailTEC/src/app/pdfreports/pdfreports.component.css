@@ -46,17 +46,17 @@ main{
     color: #000000;
 }
 
-.contenedor__user-register form select{
-    padding: 7px 50px;
-    margin-top: 10px;
-    margin-inline-start: 38%;
+.contenedor__user-register form input{/*para las entradas de texto del formulario de login*/
     width: 25%;
-    text-align: center;
-    display: flex;
+    margin-top: 5px;
+    margin-inline-start: 37%;
+    max-width: 900px;
+    padding: 5px;
     border-radius: 5px;
-    border-color: black;
+    border-color: rgb(165, 165, 165);
     background: #F2F2F2;
     font-size: 16px;
+    outline: none;
 }
 
 .contenedor__user-register form button{/*para el boton del formulario de login*/

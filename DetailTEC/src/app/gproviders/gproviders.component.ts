@@ -26,16 +26,26 @@ export class GprovidersComponent implements OnInit {
   checkoutForm: any;
 
   ngOnInit(): void {
+    // Se hace un get de la tabla de sucursales para mostrarlas una vez que se carga la pagina
     this.refreshProvidersList();
   }
 
+  // funcion para hacer post a la base de datos
   onSubmit(customerData:any) {
-    // Process checkout data here
-    let wDatos = JSON.stringify(customerData);
-    this.service.addProvider(wDatos);
+    // se ordena la informacion para enviarla
+    let data = {
+      "nombre": customerData.nombre,
+      "cedula": customerData.cedula,
+      "provincia": customerData.provincia,
+      "canton" : customerData.canton,
+      "distrito": customerData.distrito,
+      "correo": customerData.email,
+      "telefono": customerData.telefono
+    };
+    // se envian los datos a la Base de Datos
+    this.service.addProvider(JSON.stringify(data));
     this.checkoutForm.reset();
-  
-    console.warn('Your order has been submitted', customerData);
+    // se actualiza la tabla
     this.refreshProvidersList();
   }
 

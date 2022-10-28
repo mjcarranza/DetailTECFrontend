@@ -21,24 +21,30 @@ export class AsignpersonalComponent implements OnInit {
   AssignationList : any = []; 
   checkoutForm: any;
 
+
   ngOnInit(): void {
+    // Se hace un get de la tabla de sucursales para mostrarlas una vez que se carga la pagina
     this.refreshAssignationList();
   }
 
+  // funcion para hacer post a la base de datos
   onSubmit(customerData:any) {
-    // Process checkout data here
-    let wDatos = JSON.stringify(customerData);
-    this.service.addProvider(wDatos);
+    // se ordena la informacion para enviarla
+    let data = {
+      "nombre": customerData.nombre,
+      "hora_cita": customerData.hora_cita
+    };
+    // se envian los datos a la Base de Datos
+    //this.service.addEmpleado(JSON.stringify(data)); // cambiar esta ///////********* */
     this.checkoutForm.reset();
-  
-    console.warn('Your order has been submitted', customerData);
+    // se actualiza la tabla
     this.refreshAssignationList();
   }
 
   // Se actualiza la tabla de trabajadores
   //// obtener con un query los nombres de los trabajadoress
   refreshAssignationList(){
-    this.service.getProviderList().subscribe(data=>{
+    this.service.getEmpleadoList().subscribe(data=>{ // solo el nombre con la hora de la cita
       this.AssignationList = data;
       console.log(data);
     });

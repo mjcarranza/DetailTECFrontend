@@ -25,16 +25,24 @@ export class RegcitasComponent implements OnInit {
   checkoutForm: any;
 
   ngOnInit(): void {
+    // Se hace un get de la tabla de sucursales para mostrarlas una vez que se carga la pagina
     this.refreshCitaList();
   }
 
+  // funcion para hacer post a la base de datos
   onSubmit(customerData:any) {
-    // Process checkout data here
-    let wDatos = JSON.stringify(customerData);
-    this.service.addCita(wDatos);
+    // se ordena la informacion para enviarla
+    let data = {
+      "placa": customerData.placa,
+      "cliente_cedula": customerData.id,
+      "sucursal": customerData.sucursal,
+      "lavado_solicitado" : customerData.tipo_lavado,
+      "hora" : customerData.hora
+    };
+    // se envian los datos a la Base de Datos
+    this.service.addCita(JSON.stringify(data));
     this.checkoutForm.reset();
-  
-    console.warn('Your order has been submitted', customerData);
+    // se actualiza la tabla
     this.refreshCitaList();
   }
 

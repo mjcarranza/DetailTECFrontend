@@ -26,16 +26,26 @@ export class GsucursalesComponent implements OnInit {
   checkoutForm: any;
 
   ngOnInit(): void {
+    // Se hace un get de la tabla de sucursales para mostrarlas una vez que se carga la pagina
     this.refreshSucList();
   }
 
+  // funcion para hacer post a la base de datos
   onSubmit(customerData:any) {
-    // Process checkout data here
-    let wDatos = JSON.stringify(customerData);
-    this.service.addSucursal(wDatos);
+    // se ordena la informacion para enviarla
+    let data = {
+      "nombre": customerData.name,
+      "provincia": customerData.prov,
+      "canton": customerData.cant,
+      "distrito" : customerData.dist,
+      "fecha_apertura": customerData.fAbre,
+      "gerente_sucursal": customerData.idGer,
+      "fecha_inicio_gerente": customerData.fInicio
+    };
+    // se envian los datos a la Base de Datos
+    this.service.addSucursal(JSON.stringify(data));
     this.checkoutForm.reset();
-  
-    console.warn('Your order has been submitted', customerData);
+    // se actualiza la tabla
     this.refreshSucList();
   }
 

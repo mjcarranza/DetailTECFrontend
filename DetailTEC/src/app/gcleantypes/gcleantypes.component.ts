@@ -17,7 +17,8 @@ export class GcleantypesComponent implements OnInit {
       duracion: '',
       productos_usados: '',
       cantidad_personal: '',
-      puntuacion: ''
+      puntuacion: '',
+      puntuacion_redime: ''
     });
   }
 
@@ -26,16 +27,27 @@ export class GcleantypesComponent implements OnInit {
   checkoutForm: any;
 
   ngOnInit(): void {
+    // Se hace un get de la tabla de sucursales para mostrarlas una vez que se carga la pagina
     this.refreshCleanTypesList();
   }
 
+  // funcion para hacer post a la base de datos
   onSubmit(customerData:any) {
-    // Process checkout data here
-    let wDatos = JSON.stringify(customerData);
-    this.service.addCleanType(wDatos);
+    // se ordena la informacion para enviarla
+    let data = {
+      "nombre_de_lavado": customerData.nombre,
+      "costo": customerData.costo,
+      "precio": customerData.precio,
+      "duracion_estimada" : customerData.duracion,
+      "productos_utilizados": customerData.productos_usados,
+      "personal_requerido": customerData.cantidad_personal,
+      "pOtorga": customerData.puntuacion,
+      "pRedimir": customerData.puntuacion_redime
+    };
+    // se envian los datos a la Base de Datos
+    this.service.addCleanType(JSON.stringify(data));
     this.checkoutForm.reset();
-  
-    console.warn('Your order has been submitted', customerData);
+    // se actualiza la tabla
     this.refreshCleanTypesList();
   }
 
