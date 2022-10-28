@@ -18,6 +18,7 @@ export class PdfreportsComponent implements OnInit {
     });
   }
   clientList : any = []; 
+  EmpleadoList : any = [];
   checkoutForm: any;
 
   ngOnInit(): void {
@@ -25,7 +26,10 @@ export class PdfreportsComponent implements OnInit {
 
   // Generacion de reporte de planilla
   reportePlanillaPDF(){
-    // HACER QUERYS CORRESPONDIENTES
+    this.service.getEmpleadoList().subscribe(data=>{
+      this.EmpleadoList = data;
+      console.log(data);
+    });
     const pdfDefinition: any = {
       content: [ //                                      sangria, top, na, buttom
         { text: 'Reporte de Planilla',fontSize: 20, bold: true, margin: [0, 0, 0, 20], style: 'header' },
@@ -90,10 +94,45 @@ export class PdfreportsComponent implements OnInit {
   puntosPDF(){
     // HACER QUERYS CORRESPONDIENTES
     const pdfDefinition: any = {
-      content: [
+      content: [ //                                      sangria, top, na, buttom
+        { text: 'Reporte de Puntos',fontSize: 20, bold: true, margin: [0, 0, 0, 20], style: 'header' },
+        { text: 'Se muestra el top 5 de los clientes que más puntos han redimido.',fontSize: 14,margin: [0, 0, 0, 20]},
         {
-          text: 'REPORTE DE PUNTOS',
-        }
+          style: 'tableExample', color: '#444',
+          table: {
+            body: [
+              [{ text: 'Nombre',fontSize: 14,bold: true, alignment: 'center' }, 
+              { text: 'Primer Apellido',fontSize: 14,bold: true, alignment: 'center' }, 
+              { text: 'Segundo Apellido',fontSize: 14,bold: true, alignment: 'center' }, 
+              { text: 'Puntos redimidos',fontSize: 14,bold: true, alignment: 'center' }],
+
+              [{text:'Mario',alignment:'center'}, 
+              {text:'Carranza',alignment:'center'}, 
+              {text:'Castillo',alignment:'center'}, 
+              {text:'1550',alignment:'center'}],
+
+              [{text:'Juan',alignment:'center'}, 
+              {text:'Ramirez',alignment:'center'}, 
+              {text:'Castro',alignment:'center'}, 
+              {text:'700',alignment:'center'}],
+
+              [{text:'Alicia',alignment:'center'}, 
+              {text:'Arias',alignment:'center'}, 
+              {text:'Rpdriguez',alignment:'center'}, 
+              {text:'600',alignment:'center'}],
+
+              [{text:'Jennifer',alignment:'center'}, 
+              {text:'Vasquez',alignment:'center'}, 
+              {text:'Hernandez',alignment:'center'}, 
+              {text:'500',alignment:'center'}],
+
+              [{text:'Norman',alignment:'center'}, 
+              {text:'Ramirez',alignment:'center'}, 
+              {text:'Castro',alignment:'center'}, 
+              {text:'370',alignment:'center'}],
+            ]
+          }
+        },
       ]
     }
     const pdf = pdfMake.createPdf(pdfDefinition);
